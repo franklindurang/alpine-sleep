@@ -22,9 +22,19 @@
 # CMD ["filebrowser", "--port", "80", "--noauth"]
 # CMD ["sleep", "infinity"]
 
-FROM python:3.11-slim
+# FROM python:3.11-slim
+
+# WORKDIR /app
+
+# # Simple HTTP server
+# CMD ["python", "-m", "http.server", "80"]
+
+FROM python:3.10-slim
 
 WORKDIR /app
 
-# Simple HTTP server
-CMD ["python", "-m", "http.server", "80"]
+# Install dependencies
+RUN pip install --no-cache-dir httpserver
+
+# Start a basic file browser on port 80
+CMD ["python3", "-m", "http.server", "80"]
