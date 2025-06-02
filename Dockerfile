@@ -1,10 +1,13 @@
-FROM debian:bullseye-slim
+FROM alpine
 
-# Install essential tools
-RUN apt-get update && apt-get install -y curl nano vim && rm -rf /var/lib/apt/lists/*
+# Install busybox utilities
+RUN apk add --no-cache bash curl nano
 
-# Keep the container alive
+# Set working directory
+WORKDIR /data
+
+# Fake healthcheck so Railway thinks the container is alive
+HEALTHCHECK CMD echo "ok"
+
+# Keep the container running
 CMD ["sleep", "infinity"]
-
-
-HEALTHCHECK CMD ["true"]
