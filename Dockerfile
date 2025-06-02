@@ -5,3 +5,6 @@ RUN apt-get update && apt-get install -y curl nano vim && rm -rf /var/lib/apt/li
 
 # Keep the container alive
 CMD ["sleep", "infinity"]
+
+
+HEALTHCHECK CMD ["true"]
