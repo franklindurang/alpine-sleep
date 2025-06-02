@@ -12,5 +12,11 @@
 # # Keep the container running
 # CMD ["sleep", "infinity"]
 
-FROM filebrowser/filebrowser:s6
+# FROM filebrowser/filebrowser:s6
+# EXPOSE 80
+
+FROM filebrowser/filebrowser
+
 EXPOSE 80
+
+CMD ["filebrowser", "--port", "80", "--noauth"]
