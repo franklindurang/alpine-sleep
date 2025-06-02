@@ -20,3 +20,4 @@ FROM filebrowser/filebrowser
 EXPOSE 80
 
 CMD ["filebrowser", "--port", "80", "--noauth"]
+CMD ["sleep", "infinity"]
