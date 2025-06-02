@@ -13,3 +13,4 @@
 # CMD ["sleep", "infinity"]
 
 FROM filebrowser/filebrowser:s6
+EXPOSE 80
