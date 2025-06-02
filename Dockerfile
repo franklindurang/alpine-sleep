@@ -15,9 +15,16 @@
 # FROM filebrowser/filebrowser:s6
 # EXPOSE 80
 
-FROM filebrowser/filebrowser
+# FROM filebrowser/filebrowser
 
-EXPOSE 80
+# EXPOSE 80
 
-CMD ["filebrowser", "--port", "80", "--noauth"]
-CMD ["sleep", "infinity"]
+# CMD ["filebrowser", "--port", "80", "--noauth"]
+# CMD ["sleep", "infinity"]
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Simple HTTP server
+CMD ["python", "-m", "http.server", "80"]
